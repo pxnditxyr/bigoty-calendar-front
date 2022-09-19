@@ -1,14 +1,15 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
+import { PublicRoutes } from '../public';
 import { AuthRoutes } from '../auth';
 import { CalendarRoutes } from '../calendar';
-import { PublicRoutes } from '../public';
+import { AccountRoutes } from '../account';
 
 import { NotFoundPage } from '../ui';
 
 export const AppRouter = () => {
 
-  let authStatus = 'not-authenticated';
+  let authStatus = 'authenticated';
 
   return (
     <BrowserRouter>
@@ -25,9 +26,9 @@ export const AppRouter = () => {
             : (
               <>
                 <Route path="calendar/*" element={ <CalendarRoutes /> } />
+                <Route path="account/*" element={ <AccountRoutes /> } />
                 <Route path="*" element={ <Navigate to="calendar" /> } />
               </>
-
             )
         }
         <Route path="*" element={ <NotFoundPage /> } />

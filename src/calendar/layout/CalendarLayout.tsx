@@ -1,15 +1,13 @@
 import { Navbar } from '../components';
 
-interface AuthLayoutProps {
+interface CalendarLayoutProps {
   children: JSX.Element | JSX.Element[];
-  title: string;
 }
 
-export const AuthLayout = ( { children, title } : AuthLayoutProps ) => {
+export const CalendarLayout = ( { children } : CalendarLayoutProps ) => {
   return (
     <div>
       <Navbar />
-      <h1> { title } </h1>
       { children }
     </div>
   );

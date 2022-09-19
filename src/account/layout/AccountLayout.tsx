@@ -1,15 +1,13 @@
 import { Navbar } from '../components';
 
-interface AuthLayoutProps {
+interface AccountLayoutProps {
   children: JSX.Element | JSX.Element[];
-  title: string;
 }
 
-export const AuthLayout = ( { children, title } : AuthLayoutProps ) => {
+export const AccountLayout = ( { children } : AccountLayoutProps ) => {
   return (
     <div>
       <Navbar />
-      <h1> { title } </h1>
       { children }
     </div>
   );

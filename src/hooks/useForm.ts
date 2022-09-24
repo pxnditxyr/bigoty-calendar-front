@@ -1,13 +1,13 @@
 import { ChangeEvent, useState } from 'react';
 
-interface IFormState {
+export interface IFormState {
   [ key: string ]: string;
 };
 
-// interface IFormValidations {
-//   [ key: string ]: [ () => void, string ];
-// };
-//
+interface IFormValidations {
+  [ key: string ]: [ () => void, string ];
+};
+
 export const useForm = <T extends IFormState> ( initialState : T, formValidations? : IFormValidations ) => {
 
   const [ formState, setFormState ] = useState<T>( initialState );
@@ -20,9 +20,16 @@ export const useForm = <T extends IFormState> ( initialState : T, formValidation
     })
   };
 
+  const onSetNewForm = ( newForm : T ) => {
+    setFormState({
+      ...newForm
+    })
+  };
+
   return {
     formState,
     onInputChange,
+    onSetNewForm,
     ...formState
   };
 };

@@ -6,7 +6,7 @@ interface FormFieldProps {
   value?: string;
   min?: string;
   placeholder?: string;
-  onChange?: ( event : React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) => void;
+  onChange?: ( { target } : React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) => void;
   className?: string;
   label?: string;
   labelClassName?: string;

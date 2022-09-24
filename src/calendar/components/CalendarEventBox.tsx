@@ -12,6 +12,7 @@ interface ICalendarEventBoxProps {
 
 
 export const CalendarEventBox = ( { event, localizer, slotStart, slotEnd } : ICalendarEventBoxProps ) => {
+
   const { title, user } = event;
 
   return (

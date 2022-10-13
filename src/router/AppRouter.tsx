@@ -9,7 +9,7 @@ import { NotFoundPage } from '../ui';
 
 export const AppRouter = () => {
 
-  let authStatus = 'authenticated';
+  let authStatus = 'not-authenticated';
 
   return (
     <BrowserRouter>

@@ -6,16 +6,28 @@ import { CalendarRoutes } from '../calendar';
 import { AccountRoutes } from '../account';
 
 import { NotFoundPage } from '../ui';
+import { useAuthStore } from '../hooks';
+import { useEffect } from 'react';
 
 export const AppRouter = () => {
 
-  let authStatus = 'not-authenticated';
+  const { status, checkAuthToken } = useAuthStore();
+
+  useEffect( () => {
+    checkAuthToken();
+  }, [] )
+
+
+  if ( status === 'checking' ) {
+    return <div> Loading... </div>;
+  }
+
 
   return (
     <BrowserRouter>
       <Routes>
         {
-          ( authStatus === 'not-authenticated' )
+          ( status === 'not-authenticated' )
             ? (
               <>
                 <Route path="/*" element={ <PublicRoutes /> } />

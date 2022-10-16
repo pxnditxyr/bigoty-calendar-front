@@ -2,23 +2,37 @@ import { Link } from 'react-router-dom';
 
 import { AuthLayout } from '../layout';
 import { FormField } from '../../ui';
-import { useForm } from '../../hooks';
-import { FormEvent } from 'react';
+import { useAuthStore, useForm } from '../../hooks';
+import { FormEvent, useEffect } from 'react';
+import Swal from 'sweetalert2';
 
 const formState = {
-  user: '',
-  password: ''
+  user: 'yuki12',
+  password: '123456',
 }
 
 export const SignInPage = () => {
+
+  const { startSignIn, errorMessage } = useAuthStore();
+
   const {
     user, password, onInputChange
   } = useForm( formState );
   
   const onSubmit = ( event : FormEvent<HTMLFormElement> ) => {
     event.preventDefault();
-    console.log( user, password );
+    startSignIn({ user, password });
   };
+
+  useEffect( () => {
+    if ( errorMessage !== undefined ) {
+      if ( typeof errorMessage === 'string' ) {
+        Swal.fire( 'Error in sign in', errorMessage, 'error' );
+      } else {
+        Swal.fire( 'Error in sign in', errorMessage.join( ',\n' ), 'error' );
+      }
+    }
+  }, [ errorMessage ] );
 
   return (
     <AuthLayout title="Sign In">

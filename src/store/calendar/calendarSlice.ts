@@ -3,8 +3,9 @@ import { getLocalDatetime } from '../../calendar/helpers';
 import { IBigCalendarEvent } from '../../calendar/interfaces';
 
 interface IInitialState {
-  events: Array<IBigCalendarEvent>,
-  activeEvent: IBigCalendarEvent | null,
+  activeEvent: IBigCalendarEvent | null;
+  events: Array<IBigCalendarEvent>;
+  isLoadingEvents: boolean;
 }
 
 const tempEvents : Array<IBigCalendarEvent> = [
@@ -24,8 +25,9 @@ const tempEvents : Array<IBigCalendarEvent> = [
 
 
 const initialState : IInitialState = {
-  events: tempEvents,
   activeEvent: null,
+  events: tempEvents,
+  isLoadingEvents: true,
 }
 
 
@@ -47,9 +49,28 @@ export const calendarSlice = createSlice({
     onDeleteEvent: ( state, { payload } ) => {
       state.events = state.events.filter( event => event._id !== payload._id );
       state.activeEvent = null;
+    },
+    onLoadingEvents: ( state, { payload } ) => {
+      state.isLoadingEvents = false;
+      payload.forEach( ( event : IBigCalendarEvent ) => {
+        const exists = state.events.some( dbEvent => dbEvent._id === event._id );
+        if ( !exists )
+          state.events.push( event );
+      });
+    },
+    onSignOutCalendar: ( state ) => {
+      state.activeEvent = null;
+      state.events = [];
+      state.isLoadingEvents = true;
     }
   }
-
 });
 
-export const { onAddNewEvent, onSetActiveEvent, onUpdatedEvent, onDeleteEvent } = calendarSlice.actions;
+export const {
+  onAddNewEvent,
+  onDeleteEvent,
+  onLoadingEvents,
+  onSetActiveEvent,
+  onSignOutCalendar,
+  onUpdatedEvent,
+} = calendarSlice.actions;

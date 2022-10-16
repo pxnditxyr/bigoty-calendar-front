@@ -1,6 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useAuthStore } from '../../hooks';
 
 export const Navbar = () => {
+
+  const { startSignOut, user } = useAuthStore();
+
+  const onSignOut = () => {
+    startSignOut();
+  }
+
   return (
     <nav>
       <ul>
@@ -22,7 +30,7 @@ export const Navbar = () => {
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
         </li>
-        <li> @example </li>
+        <li> @{ user.username } </li>
       </ul>
       <ul>
         <li>
@@ -38,14 +46,16 @@ export const Navbar = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              {/* profile default svg vector  */}
               <circle cx="11" cy="7" r="5"></circle>
               <path d="M22 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              
             </svg>
           </Link>
         </li>
-        <li><button> Sign Out </button></li>
+        <li>
+          <button
+            onClick={ onSignOut }
+          > Sign Out </button>
+        </li>
       </ul>
     </nav>
   );

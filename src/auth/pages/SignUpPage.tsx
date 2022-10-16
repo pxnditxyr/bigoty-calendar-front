@@ -1,18 +1,19 @@
 import { Link } from 'react-router-dom';
-import { FormEvent } from 'react';
+import { FormEvent, useEffect } from 'react';
 
 import { AuthLayout } from '../layout';
 import { FormField } from '../../ui';
-import { useForm } from '../../hooks';
+import { useAuthStore, useForm } from '../../hooks';
+import Swal from 'sweetalert2';
 
 const formData = {
-  lastName: '',
-  name:     '',
+  lastName: 'ricaldi',
+  name:     'jose enrique',
   birthday: '',
-  username: '',
-  email:    '',
-  password: '',
-  confirmPassword: ''
+  username: 'yuki0',
+  email:    'yuki0@gmail.com',
+  password: '123456',
+  confirmPassword: '123456',
 }
 
 export const SignUpPage = () => {
@@ -22,10 +23,27 @@ export const SignUpPage = () => {
     password, confirmPassword, onInputChange,
   } = useForm( formData );
 
+  const { startSignUp, errorMessage } = useAuthStore();
 
   const onSubmit = ( event : FormEvent<HTMLFormElement> ) => {
     event.preventDefault();
+    if ( password !== confirmPassword ) {
+      Swal.fire( 'Error in sign up', 'Passwords must be the same', 'error' );
+      return;
+    }
+    startSignUp({ lastName, name, birthday, username, email, password });
   }
+
+  useEffect( () => {
+    if ( errorMessage !== undefined ) {
+      if ( typeof errorMessage === 'string' ) {
+        Swal.fire( 'Error in sign up', errorMessage, 'error' );
+      } else {
+        Swal.fire( 'Error in sign up', errorMessage.join( ',\n' ), 'error' );
+      }
+    }
+  }, [ errorMessage ] );
+
 
   return (
     <AuthLayout title="Sign Up">

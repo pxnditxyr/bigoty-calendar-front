@@ -10,10 +10,11 @@ interface FormFieldProps {
   className?: string;
   label?: string;
   labelClassName?: string;
+  required?: boolean;
   error?: string;
 }
 
-export const FormField = ( { id, type, name, value, min, placeholder, onChange, className, label, labelClassName, error } : FormFieldProps ) => {
+export const FormField = ( { id, type, name, value, min, placeholder, onChange, className, label, labelClassName, error, required } : FormFieldProps ) => {
   return (
     <div>
       {
@@ -28,6 +29,7 @@ export const FormField = ( { id, type, name, value, min, placeholder, onChange, 
         placeholder={ placeholder }
         onChange={ onChange }
         className={ className }
+        required={ required }
       />
       {
         ( error ) && <span> { error } </span>

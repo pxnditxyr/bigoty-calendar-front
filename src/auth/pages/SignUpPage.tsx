@@ -7,13 +7,13 @@ import { useAuthStore, useForm } from '../../hooks';
 import Swal from 'sweetalert2';
 
 const formData = {
-  lastName: 'ricaldi',
-  name:     'jose enrique',
-  birthday: '',
-  username: 'yuki0',
-  email:    'yuki0@gmail.com',
-  password: '123456',
-  confirmPassword: '123456',
+  lastName: '',
+  name:     '',
+  birthday: '2000-12-12',
+  username: '',
+  email:    '',
+  password: '',
+  confirmPassword: '',
 }
 
 export const SignUpPage = () => {
@@ -88,7 +88,7 @@ export const SignUpPage = () => {
           <FormField
             name="email"
             type="email"
-            placeholder="Email or Username"
+            placeholder="Email"
             value={ email }
             onChange={ onInputChange }
             className="border-2 border-slate-300 focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none rounded-md px-2 py-1 w-full"

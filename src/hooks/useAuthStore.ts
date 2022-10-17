@@ -3,7 +3,7 @@ import { bigotyCalendarApi } from '../api';
 import { formatErrors } from '../helpers';
 import { IUser } from '../interfaces';
 import { useAppDispatch, useAppSelector } from '../store';
-import { clearErrorMessage, onChangeErrorMessage, onChecking, onSignIn, onSignOut } from '../store/auth';
+import { clearErrorMessage, onChecking, onSignIn, onSignOut } from '../store/auth';
 import { onSignOutCalendar } from '../store/calendar';
 
 export const useAuthStore = () => {
@@ -28,7 +28,7 @@ export const useAuthStore = () => {
         email: data.email
       }) );
     } catch ( error : any ) {
-      dispatch( onSignOut( error.response.data.msg || 'Unknown Error' ) );
+      dispatch( onSignOut( formatErrors( error.response.data ) ) );
       setTimeout( () => {
         dispatch( clearErrorMessage() );
       }, 1 );

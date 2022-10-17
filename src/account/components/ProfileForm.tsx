@@ -24,8 +24,9 @@ export const ProfileForm = ( { onChangeMode } : ProfileFormProps ) => {
   }
   const onSubmit = async ( event : FormEvent<HTMLFormElement> ) => {
     event.preventDefault();
-    await startUpdatingProfile( { uid: user.uid, lastName, name, birthday, username, email } );
-    onChangeMode();
+    const res = await startUpdatingProfile( { uid: user.uid, lastName, name, birthday, username, email } );
+    if ( res )
+      onChangeMode();
   }
 
   return (
@@ -65,7 +66,7 @@ export const ProfileForm = ( { onChangeMode } : ProfileFormProps ) => {
         value={ email }
         onChange={ onInputChange }
       />
-      <button> Edit Profile </button>
+      <button> Save </button>
     </form>
   );
 };

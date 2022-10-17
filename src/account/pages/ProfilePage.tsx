@@ -4,7 +4,7 @@ import { AccountLayout } from '../layout';
 
 export const ProfilePage = () => {
   
-  const [ isEditing, setIsEditing ] = useState<boolean>( true );
+  const [ isEditing, setIsEditing ] = useState<boolean>( false );
 
   const onChangeMode = () => {
     setIsEditing( !isEditing );

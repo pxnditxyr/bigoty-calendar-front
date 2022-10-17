@@ -95,11 +95,13 @@ export const useAuthStore = () => {
     try {
       await bigotyCalendarApi.put( '/profile/update', user );
       dispatch( onSignIn({ ...user }) );
+      return true;
     } catch ( error : any ) {
       Swal.fire( 'Error', formatErrors( error.response.data ), 'error' );
       setTimeout( () => {
         dispatch( clearErrorMessage() );
       }, 1 );
+      return false;
     }
   };
 

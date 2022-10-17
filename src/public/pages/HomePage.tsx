@@ -1,7 +1,9 @@
+import { PublicLayout } from '../layout';
+
 export const HomePage = () => {
   return (
-    <div>
-      <h1> Home </h1>
-    </div>
+    <PublicLayout title="Home">
+
+    </PublicLayout>
   );
 };

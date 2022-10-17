@@ -1,8 +1,8 @@
+import { PublicLayout } from "../layout";
 
 export const MePage = () => {
   return (
-    <div>
-      <h1> Me </h1>
-    </div>
+    <PublicLayout title="Me">
+    </PublicLayout>
   );
 };

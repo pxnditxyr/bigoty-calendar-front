@@ -1,24 +1,53 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
+
+  const [ isOpen, setIsOpen ] = useState<boolean>( false );
+
+  const onNavToggle = () => {
+    setIsOpen( !isOpen );
+  };
+
   return (
-    <nav>
-      <ul>
+    <nav
+      className={ `w-full bg-gray-800 flex items-center justify-between p-4 text-white text-lg font-medium ${ isOpen ? 'h-screen flex-col fixed z-10 overflow-y-auto' : '' } sm:grid sm:grid-cols-3 sm:gap-4 sm:items-center sm:justify-center sm:h-auto sm:static sm:overflow-y-visible font-serif` }
+    >
+      <ul
+        className={ `w-full flex items-center gap-4 ${ isOpen ? 'flex-col' : 'hidden' } sm:flex sm:flex-row sm:justify-start sm:w-auto` }
+      >
         <li>
-          <Link to="/"> Home </Link>
+          <Link 
+            to="/"
+            onClick={ onNavToggle }
+          > Home </Link>
         </li>
         <li>
-          <Link to="features"> Features </Link>
+          <Link
+            to="../features"
+            onClick={ onNavToggle }
+          > Features </Link>
         </li>
         <li>
-          <Link to="me"> Me </Link>
+          <Link 
+            onClick={ onNavToggle }
+            to="../me"
+          > Me </Link>
         </li>
         <li>
-          <Link to="about"> About </Link>
+          <Link
+            to="../about"
+            onClick={ onNavToggle }
+          > About </Link>
         </li>
       </ul>
-      <div>
-        <Link to="/">
+      <div
+        className="flex items-center justify-center"
+      >
+        <Link
+          onClick={ onNavToggle }
+          to="/"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -35,14 +64,32 @@ export const Navbar = () => {
           </svg>
         </Link>
       </div>
-      <ul>
+      <ul
+        className={ `flex items-center gap-4 ${ isOpen ? 'flex-col' : 'hidden' } sm:flex sm:flex-row sm:justify-end sm:w-auto` }
+      >
         <li>
-          <Link to="auth/signin"> Sign In </Link>
+          <Link
+            onClick={ onNavToggle }
+            to="../auth/signin"
+          > Sign In </Link>
         </li>
         <li>
-          <Link to="auth/signup"> Sign Up </Link>
+          <Link
+            to="../auth/signup"
+            onClick={ onNavToggle }
+          > Sign Up </Link>
         </li>
       </ul>
+      <div
+        className="sm:hidden"
+      >
+        <button
+          className="text-white text-2xl fixed top-3 right-4"
+          onClick={ () => setIsOpen( !isOpen ) }
+        >
+          { isOpen ? 'X' : '☰' }
+        </button>
+      </div>
     </nav>
   );
 };

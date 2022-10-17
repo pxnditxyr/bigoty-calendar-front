@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getLocalDatetime } from '../../calendar/helpers';
+// import { getLocalDatetime } from '../../calendar/helpers';
 import { IBigCalendarEvent } from '../../calendar/interfaces';
 
 interface IInitialState {
@@ -8,25 +8,25 @@ interface IInitialState {
   isLoadingEvents: boolean;
 }
 
-const tempEvents : Array<IBigCalendarEvent> = [
-  {
-    _id: '21390',
-    title: 'This is another event',
-    note: 'This is my new Event',
-    start: new Date( Date.parse( getLocalDatetime() ) ),
-    end: new Date( Date.parse( getLocalDatetime( 2 ) ) ),
-    bgColor: '#0f3d3e',
-    user: {
-      _id: '123',
-      name: 'charly',
-    }
-  }
-]
+// const tempEvents : Array<IBigCalendarEvent> = [
+//   {
+//     _id: '21390',
+//     title: 'This is another event',
+//     note: 'This is my new Event',
+//     start: new Date( Date.parse( getLocalDatetime() ) ),
+//     end: new Date( Date.parse( getLocalDatetime( 2 ) ) ),
+//     bgColor: '#0f3d3e',
+//     user: {
+//       _id: '123',
+//       name: 'charly',
+//     }
+//   }
+// ]
 
 
 const initialState : IInitialState = {
   activeEvent: null,
-  events: tempEvents,
+  events: [],
   isLoadingEvents: true,
 }
 

@@ -1,6 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { useAuthStore } from '../../hooks';
 
 export const Navbar = () => {
+
+  const { startSignOut } = useAuthStore();
+
+  const onSignOutClick = () => {
+    startSignOut();
+  }
   return (
     <nav>
       <ul>
@@ -36,7 +43,7 @@ export const Navbar = () => {
         </li>
       </ul>
       <ul>
-        <li><button> Sign Out </button></li>
+        <li><button onClick={ onSignOutClick }> Sign Out </button></li>
       </ul>
     </nav>
   );

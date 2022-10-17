@@ -1,7 +1,9 @@
+import Swal from 'sweetalert2';
 import { bigotyCalendarApi } from '../api';
 import { formatErrors } from '../helpers';
+import { IUser } from '../interfaces';
 import { useAppDispatch, useAppSelector } from '../store';
-import { clearErrorMessage, onChecking, onSignIn, onSignOut } from '../store/auth';
+import { clearErrorMessage, onChangeErrorMessage, onChecking, onSignIn, onSignOut } from '../store/auth';
 import { onSignOutCalendar } from '../store/calendar';
 
 export const useAuthStore = () => {
@@ -21,6 +23,7 @@ export const useAuthStore = () => {
         uid: data.uid,
         lastName: data.lastName,
         name: data.name,
+        birthday: data.birthday,
         username: data.username,
         email: data.email
       }) );
@@ -42,6 +45,7 @@ export const useAuthStore = () => {
         uid: data.uid,
         lastName: data.lastName,
         name: data.name,
+        birthday: data.birthday,
         username: data.username,
         email: data.email
       }) );
@@ -68,6 +72,7 @@ export const useAuthStore = () => {
         uid: data.uid,
         lastName: data.lastName,
         name: data.name,
+        birthday: data.birthday,
         username: data.username,
         email: data.email
       }) );
@@ -86,12 +91,39 @@ export const useAuthStore = () => {
     dispatch( onSignOut( undefined ) );
   }
 
+  const startUpdatingProfile = async ( user : IUser ) => {
+    try {
+      await bigotyCalendarApi.put( '/profile/update', user );
+      dispatch( onSignIn({ ...user }) );
+    } catch ( error : any ) {
+      Swal.fire( 'Error', formatErrors( error.response.data ), 'error' );
+      setTimeout( () => {
+        dispatch( clearErrorMessage() );
+      }, 1 );
+    }
+  };
+
+  const startDeletingAccount = async () => {
+    try {
+      await bigotyCalendarApi.delete( '/profile/delete' );
+      startSignOut();
+    } catch ( error : any ) {
+      dispatch( onSignOut( formatErrors( error.response.data ) ) );
+      setTimeout( () => {
+        dispatch( clearErrorMessage() );
+      }, 1 );
+    }
+  };
+
+
   return {
     checkAuthToken,
     errorMessage,
     startSignIn,
     startSignOut,
     startSignUp,
+    startUpdatingProfile,
+    startDeletingAccount,
     status,
     user,
   }

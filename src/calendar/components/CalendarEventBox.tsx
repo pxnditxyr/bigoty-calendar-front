@@ -13,12 +13,14 @@ interface ICalendarEventBoxProps {
 
 export const CalendarEventBox = ( { event, localizer, slotStart, slotEnd } : ICalendarEventBoxProps ) => {
 
-  const { title, user } = event;
+  const { title, note, user } = event;
 
   return (
-    <>
-      <p> { title } </p>
-      <span> { user.name } </span>
-    </>
+    <article className="flex flex-col p-2">
+      <h1 className="text-sm font-light truncate"> { title } </h1>
+      <p className="text-sm font-light truncate"> { user?.name } </p>
+      <p className="text-sm font-light truncate"> { note } </p>
+    </article>
+
   );
 };

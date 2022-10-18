@@ -19,25 +19,25 @@ export const Navbar = () => {
         <li>
           <Link 
             to="/"
-            onClick={ onNavToggle }
+            onClick={ () => setIsOpen( false ) }
           > Home </Link>
         </li>
         <li>
           <Link
             to="../features"
-            onClick={ onNavToggle }
+            onClick={ () => setIsOpen( false ) }
           > Features </Link>
         </li>
         <li>
           <Link 
-            onClick={ onNavToggle }
+            onClick={ () => setIsOpen( false ) }
             to="../me"
           > Me </Link>
         </li>
         <li>
           <Link
             to="../about"
-            onClick={ onNavToggle }
+            onClick={ () => setIsOpen( false ) }
           > About </Link>
         </li>
       </ul>
@@ -45,7 +45,7 @@ export const Navbar = () => {
         className="flex items-center justify-center"
       >
         <Link
-          onClick={ onNavToggle }
+          onClick={ () => setIsOpen( false ) }
           to="/"
         >
           <svg

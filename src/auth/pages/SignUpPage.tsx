@@ -48,7 +48,7 @@ export const SignUpPage = () => {
   return (
     <AuthLayout title="Sign Up">
       <div
-        className="p-6 flex flex-col justify-center items-center bg-white w-auto rounded-xl shadow-lg gap-4"
+        className="p-6 flex flex-col justify-center items-center bg-white w-auto rounded-xl shadow-lg gap-4 sm:w-96 sm:h-auto"
       >
         <form onSubmit={ onSubmit }
           className="flex flex-col gap-4 w-full"
@@ -59,7 +59,7 @@ export const SignUpPage = () => {
             placeholder="Last Name"
             value={ lastName }
             onChange={ onInputChange }
-            className="border-2 border-slate-300 focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none rounded-md px-2 py-1 w-full"
+            className="border-2 border-slate-300 focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none rounded-md px-2 py-1 w-full sm:px-4 sm:py-3 sm:text-lg"
           />
           <FormField
             name="name"
@@ -67,7 +67,7 @@ export const SignUpPage = () => {
             placeholder="Name"
             value={ name }
             onChange={ onInputChange }
-            className="border-2 border-slate-300 focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none rounded-md px-2 py-1 w-full"
+            className="border-2 border-slate-300 focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none rounded-md px-2 py-1 w-full sm:px-4 sm:py-3 sm:text-lg"
           />
           <FormField
             name="birthday"
@@ -75,7 +75,7 @@ export const SignUpPage = () => {
             placeholder="Birthday"
             value={ birthday }
             onChange={ onInputChange }
-            className="border-2 border-slate-300 focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none rounded-md px-2 py-1 w-full"
+            className="border-2 border-slate-300 focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none rounded-md px-2 py-1 w-full sm:px-4 sm:py-3 sm:text-lg"
           />
           <FormField
             name="username"
@@ -83,7 +83,7 @@ export const SignUpPage = () => {
             placeholder="Username"
             value={ username }
             onChange={ onInputChange }
-            className="border-2 border-slate-300 focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none rounded-md px-2 py-1 w-full"
+            className="border-2 border-slate-300 focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none rounded-md px-2 py-1 w-full sm:px-4 sm:py-3 sm:text-lg"
           />
           <FormField
             name="email"
@@ -91,7 +91,7 @@ export const SignUpPage = () => {
             placeholder="Email"
             value={ email }
             onChange={ onInputChange }
-            className="border-2 border-slate-300 focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none rounded-md px-2 py-1 w-full"
+            className="border-2 border-slate-300 focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none rounded-md px-2 py-1 w-full sm:px-4 sm:py-3 sm:text-lg"
           />
           <FormField
             name="password"
@@ -99,7 +99,7 @@ export const SignUpPage = () => {
             placeholder="Password"
             value={ password }
             onChange={ onInputChange }
-            className="border-2 border-slate-300 focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none rounded-md px-2 py-1 w-full"
+            className="border-2 border-slate-300 focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none rounded-md px-2 py-1 w-full sm:px-4 sm:py-3 sm:text-lg"
           />
           <FormField
             name="confirmPassword"
@@ -107,14 +107,14 @@ export const SignUpPage = () => {
             placeholder="Confirm Password"
             value={ confirmPassword }
             onChange={ onInputChange }
-            className="border-2 border-slate-300 focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none rounded-md px-2 py-1 w-full"
+            className="border-2 border-slate-300 focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none rounded-md px-2 py-1 w-full sm:px-4 sm:py-3 sm:text-lg"
           />
           <button
-            className="bg-slate-900 text-white font-bold py-1 rounded-md focus:outline-none hover:bg-slate-700 w-full"
+            className="bg-slate-900 text-white font-bold py-1 rounded-md focus:outline-none hover:bg-slate-700 w-full sm:py-3 sm:text-xl"
           > Sign Up </button>
         </form>
         <Link
-          className="text-sky-700 hover:underline px-3 py-1 rounded-md focus:outline-none w-full"
+          className="text-sky-700 hover:underline px-3 py-1 rounded-md focus:outline-none w-full sm:py-3 sm:text-xl"
           to="../signin"
         > Already have an account? Sign In </Link>
       </div>

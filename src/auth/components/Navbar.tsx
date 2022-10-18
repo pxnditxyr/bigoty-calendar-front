@@ -5,12 +5,12 @@ export const Navbar = () => {
   const navigate = useNavigate();
 
   const goBack = () => {
-    navigate( -1 );
+    navigate( '/' );
   };
 
   return (
-    <nav className="w-full bg-slate-900 flex justify-center items-center py-2">
-      <ul className="flex justify-between items-center w-3/4">
+    <nav className="w-full bg-slate-900 flex justify-start items-center py-2">
+      <ul className="flex justify-start items-center py-2 px-6">
         <button
             className="text-white text-xl font-bold hover:text-stone-200"
             onClick={ goBack }

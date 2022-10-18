@@ -8,15 +8,18 @@ interface FormFieldProps {
   placeholder?: string;
   onChange?: ( { target } : React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) => void;
   className?: string;
+  containerClassName?: string;
   label?: string;
   labelClassName?: string;
   required?: boolean;
   error?: string;
 }
 
-export const FormField = ( { id, type, name, value, min, placeholder, onChange, className, label, labelClassName, error, required } : FormFieldProps ) => {
+export const FormField = ( { id, type, name, value, min, placeholder, onChange, className, containerClassName, label, labelClassName, error, required } : FormFieldProps ) => {
   return (
-    <div>
+    <div
+      className={ containerClassName }
+    >
       {
         ( label ) && <label htmlFor={ id } className={ labelClassName }>{ label }</label>
       }

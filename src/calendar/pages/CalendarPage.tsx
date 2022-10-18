@@ -82,14 +82,13 @@ export const CalendarPage = () => {
 
   return (
     <CalendarLayout>
-      <h1> Calendar Page </h1>
       <Calendar
         localizer={ localizer }
         events={ events }
         defaultView={ lastView as View }
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 500 }}
+        style={{ height: '100%' }}
         eventPropGetter={ eventStyleGetter }
         components={{
           event: CalendarEventBox

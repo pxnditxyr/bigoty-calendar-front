@@ -17,13 +17,19 @@ interface CalendarFormProps {
 export const CalendarForm = ( { start, end, title, note, onSubmit, onInputChange, bgColor } : CalendarFormProps ) => {
 
   return (
-    <form onSubmit={ onSubmit }>
+    <form 
+      onSubmit={ onSubmit }
+      className="flex flex-col gap-2 p-2"
+    >
       <FormField
         label="Start Date"
         name="start"
         type="datetime-local"
         value={ getFormattedTime( start ) }
         onChange={ onInputChange }
+        className="w-full rounded-md bg-white p-2 focus:outline-none rounded-lg border-2 focus:border-blue-500"
+        containerClassname="flex flex-col gap-2"
+        
       />
 
       <FormField
@@ -32,6 +38,8 @@ export const CalendarForm = ( { start, end, title, note, onSubmit, onInputChange
         type="datetime-local"
         value={ getFormattedTime( end ) }
         onChange={ onInputChange }
+        className="w-full rounded-md bg-white p-2 focus:outline-none rounded-lg border-2 focus:border-blue-500"
+        containerClassname="flex flex-col gap-2"
       />
 
       <FormField
@@ -42,6 +50,8 @@ export const CalendarForm = ( { start, end, title, note, onSubmit, onInputChange
         placeholder="Title"
         value={ title }
         onChange={ onInputChange }
+        className="w-full rounded-md bg-white p-2 focus:outline-none rounded-lg border-2 focus:border-blue-500"
+        containerClassname="flex flex-col gap-2"
       />
       <FormField
         label="Notes"
@@ -51,6 +61,8 @@ export const CalendarForm = ( { start, end, title, note, onSubmit, onInputChange
         placeholder="Notes"
         value={ note }
         onChange={ onInputChange }
+        className="w-full rounded-md bg-white p-2 focus:outline-none rounded-lg border-2 focus:border-blue-500"
+        containerClassname="flex flex-col gap-2"
       />
       <FormField
         label="Color"
@@ -59,6 +71,8 @@ export const CalendarForm = ( { start, end, title, note, onSubmit, onInputChange
         type="color"
         value={ bgColor }
         onChange={ onInputChange }
+        className="w-full rounded-md bg-white focus:outline-none rounded-lg border-2 focus:border-blue-500"
+        containerClassname="flex flex-col gap-2"
       />
       <button> Save </button>
     </form>

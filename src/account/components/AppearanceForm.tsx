@@ -28,8 +28,13 @@ export const AppearanceForm = ( { page, onSubmitPage } : AppearanceFormProps ) =
   }
 
   return (
-    <form onSubmit={ onSubmitForm }>
+    <form
+      className="flex flex-col p-4 gap-4 sm:px-8 sm:py-4 rounded-lg shadow-lg sm:gap-6 w-full"
+      onSubmit={ onSubmitForm }>
       <FormField
+        containerClassName="flex flex-col gap-4 sm:gap-4"
+        labelClassName="text-xl font-bold text-gray-700 sm:text-xl"
+        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent sm:text-lg sm:px-4 sm:py-3"
         label="Title"
         name="title"
         type="text"
@@ -37,6 +42,9 @@ export const AppearanceForm = ( { page, onSubmitPage } : AppearanceFormProps ) =
         onChange={ onInputChange }
       />
       <FormField
+        containerClassName="flex flex-col gap-4 sm:gap-4"
+        labelClassName="text-xl font-bold text-gray-700 sm:text-xl"
+        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent sm:text-lg sm:px-4 sm:py-3"
         label="Description"
         name="description"
         type="text"
@@ -44,6 +52,9 @@ export const AppearanceForm = ( { page, onSubmitPage } : AppearanceFormProps ) =
         onChange={ onInputChange }
       />
       <FormField
+        containerClassName="flex flex-col gap-4 sm:gap-4"
+        labelClassName="text-xl font-bold text-gray-700 sm:text-xl"
+        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent sm:text-lg sm:px-4 sm:py-3"
         label="Content"
         name="content"
         type="text"
@@ -51,6 +62,9 @@ export const AppearanceForm = ( { page, onSubmitPage } : AppearanceFormProps ) =
         onChange={ onInputChange }
       />
       <FormField
+        containerClassName="flex flex-col gap-4 sm:gap-4"
+        labelClassName="text-xl font-bold text-gray-700 sm:text-xl"
+        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent sm:text-lg sm:px-4 sm:py-3"
         label="Profession"
         name="profession"
         type="text"
@@ -58,6 +72,9 @@ export const AppearanceForm = ( { page, onSubmitPage } : AppearanceFormProps ) =
         onChange={ onInputChange }
       />
       <FormField
+        containerClassName="flex flex-col gap-4 sm:gap-4"
+        labelClassName="text-xl font-bold text-gray-700 sm:text-xl"
+        className="w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent sm:text-lg"
         label="Header Color"
         name="headerColor"
         type="color"
@@ -65,6 +82,9 @@ export const AppearanceForm = ( { page, onSubmitPage } : AppearanceFormProps ) =
         onChange={ onInputChange }
       />
       <FormField
+        containerClassName="flex flex-col gap-4 sm:gap-4"
+        labelClassName="text-xl font-bold text-gray-700 sm:text-xl"
+        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent sm:text-lg sm:px-4 sm:py-3"
         label="Header Image"
         name="headerImage"
         type="text"
@@ -73,6 +93,9 @@ export const AppearanceForm = ( { page, onSubmitPage } : AppearanceFormProps ) =
         onChange={ onInputChange }
       />
       <FormField
+        containerClassName="flex flex-col gap-4 sm:gap-4"
+        labelClassName="text-xl font-bold text-gray-700 sm:text-xl"
+        className="w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent sm:text-lg"
         label="Background Color"
         name="bgColor"
         type="color"
@@ -80,6 +103,9 @@ export const AppearanceForm = ( { page, onSubmitPage } : AppearanceFormProps ) =
         onChange={ onInputChange }
       />
       <FormField
+        containerClassName="flex flex-col gap-4 sm:gap-4"
+        labelClassName="text-xl font-bold text-gray-700 sm:text-xl"
+        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent sm:text-lg sm:px-4 sm:py-3"
         label="Background Image"
         name="bgImage"
         type="text"
@@ -87,7 +113,9 @@ export const AppearanceForm = ( { page, onSubmitPage } : AppearanceFormProps ) =
         value={ bgImage }
         onChange={ onInputChange }
       />
-      <button type="submit"> Save </button>
+      <button
+        className="w-full py-2 text-lg font-semibold text-white bg-blue-600 rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 focus:ring-offset-2 focus:ring-offset-gray-100"
+      > Save </button>
     </form>
   );
 };

@@ -80,7 +80,7 @@ export const useAuthStore = () => {
     } catch ( error : any ) {
       localStorage.removeItem( 'token' );
       localStorage.removeItem( 'token-init-date' );
-      dispatch( onSignOut( formatErrors( error.response.data ) ) );
+      dispatch( onSignOut( undefined ) );
     }
   }
 

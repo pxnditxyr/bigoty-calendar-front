@@ -1,4 +1,4 @@
-import { PublicLayout } from "../layout";
+import { PublicLayout } from '../layout';
 
 export const MePage = () => {
   return (

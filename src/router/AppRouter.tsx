@@ -5,7 +5,7 @@ import { AuthRoutes } from '../auth';
 import { CalendarRoutes } from '../calendar';
 import { AccountRoutes } from '../account';
 
-import { NotFoundPage } from '../ui';
+import { Loading, NotFoundPage } from '../ui';
 import { useAuthStore } from '../hooks';
 import { useEffect } from 'react';
 
@@ -17,11 +17,7 @@ export const AppRouter = () => {
     checkAuthToken();
   }, [] )
 
-
-  if ( status === 'checking' ) {
-    return <div> Loading... </div>;
-  }
-
+  if ( status === 'checking' ) return <Loading />;
 
   return (
     <BrowserRouter>

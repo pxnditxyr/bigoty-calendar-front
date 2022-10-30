@@ -11,33 +11,37 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={ `w-full bg-gray-800 flex items-center justify-between p-4 text-white text-lg font-medium ${ isOpen ? 'h-screen flex-col fixed z-10 overflow-y-auto' : '' } sm:grid sm:grid-cols-3 sm:gap-4 sm:items-center sm:justify-center sm:h-auto sm:static sm:overflow-y-visible font-serif` }
+      className={ `w-full bg-gray-800 flex items-center justify-between p-4 text-white text-lg font-medium ${ isOpen ? 'h-screen flex-col fixed z-10 overflow-y-auto' : '' } md:grid md:grid-cols-3 md:gap-4 md:items-center md:justify-center md:h-auto md:static md:overflow-y-visible font-serif` }
     >
       <ul
-        className={ `w-full flex items-center gap-4 ${ isOpen ? 'flex-col' : 'hidden' } sm:flex sm:flex-row sm:justify-start sm:w-auto` }
+        className={ `w-full flex items-center gap-4 ${ isOpen ? 'flex-col' : 'hidden' } md:flex md:flex-row md:justify-start md:w-auto` }
       >
         <li>
           <Link 
             to="/"
             onClick={ () => setIsOpen( false ) }
+            className="hover:bg-gray-700 p-2 rounded-md hover:text-zinc-100 transition-colors duration-200"
           > Home </Link>
         </li>
         <li>
           <Link
             to="../features"
             onClick={ () => setIsOpen( false ) }
+            className="hover:bg-gray-700 p-2 rounded-md hover:text-zinc-100 transition-colors duration-200"
           > Features </Link>
         </li>
         <li>
           <Link 
             onClick={ () => setIsOpen( false ) }
             to="../me"
+            className="hover:bg-gray-700 p-2 rounded-md hover:text-zinc-100 transition-colors duration-200"
           > Me </Link>
         </li>
         <li>
           <Link
             to="../about"
             onClick={ () => setIsOpen( false ) }
+            className="hover:bg-gray-700 p-2 rounded-md hover:text-zinc-100 transition-colors duration-200"
           > About </Link>
         </li>
       </ul>
@@ -65,23 +69,25 @@ export const Navbar = () => {
         </Link>
       </div>
       <ul
-        className={ `flex items-center gap-4 ${ isOpen ? 'flex-col' : 'hidden' } sm:flex sm:flex-row sm:justify-end sm:w-auto` }
+        className={ `flex items-center gap-4 ${ isOpen ? 'flex-col' : 'hidden' } md:flex md:flex-row md:justify-end md:w-auto` }
       >
         <li>
           <Link
             onClick={ onNavToggle }
             to="../auth/signin"
+            className="hover:bg-gray-700 p-2 rounded-md hover:text-zinc-100 transition-colors duration-200"
           > Sign In </Link>
         </li>
         <li>
           <Link
             to="../auth/signup"
             onClick={ onNavToggle }
+            className="hover:bg-gray-700 p-2 rounded-md hover:text-zinc-100 transition-colors duration-200"
           > Sign Up </Link>
         </li>
       </ul>
       <div
-        className="sm:hidden"
+        className="md:hidden"
       >
         <button
           className="text-white text-2xl fixed top-3 right-4"

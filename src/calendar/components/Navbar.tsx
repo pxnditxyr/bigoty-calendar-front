@@ -46,7 +46,7 @@ export const Navbar = () => {
       <div
         className={ `flex items-center w-full ${ isOpen ? 'justify-center' : 'justify-start' } sm:justify-center` }
       >
-        <Link to="../account/profile">
+        <Link to="../../account/profile">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
